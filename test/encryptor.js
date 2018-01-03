@@ -33,10 +33,47 @@ describe('encryptor', () => {
         expect(() => decrypt(message))
           .to.throw(Error)
       })
-      it('decrypts correctly', () => {
+      it('works with strings', () => {
         const encrypted = encrypt(message, {password})
         expect(decrypt(encrypted, password))
           .to.equal(message)
+      })
+      it('works with dates', () => {
+        const data = new Date('2018-01-03T14:34:01.063Z')
+        const encrypted = encrypt(data, {password})
+        expect(decrypt(encrypted, password))
+          .to.eql(data)
+      })
+      it('works with arrays', () => {
+        const data = [1, 2, 3]
+        const encrypted = encrypt(data, {password})
+        expect(decrypt(encrypted, password))
+          .to.eql(data)
+      })
+      it('works with numbers', () => {
+        const data = 1337.5
+        const encrypted = encrypt(data, {password})
+        expect(decrypt(encrypted, password))
+          .to.eql(data)
+      })
+      it('works with bools', () => {
+        const data = true
+        const encrypted = encrypt(data, {password})
+        expect(decrypt(encrypted, password))
+          .to.equal(data)
+      })
+      it('works with objects', () => {
+        const data = {
+          num: 42,
+          str: 'Hello World!',
+          dat: new Date('2018-01-03T14:34:01.063Z'),
+          bol: true,
+          arr: [1, 2, 3],
+          dep: {arr: [{id: 1}]}
+        }
+        const encrypted = encrypt(data, {password})
+        expect(decrypt(encrypted, password))
+          .to.eql(data)
       })
     })
   })

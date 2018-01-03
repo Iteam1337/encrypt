@@ -1,6 +1,8 @@
 # aes-encrypt
 Some (hopefully) sensible defaults for encrypting in node
 
+The data is serialized using `msgpack5`. This allows for any valid js structure to be encrypted/decrypted
+
 ## Install
 ```bash
 npm instal --save aes-encrypt
@@ -28,5 +30,5 @@ const {encrypt, decrypt} = require('aes-encrypt')
   })
 
 const encrypted = encrypt('some text')  // returns a base64 encoded string
-const decrypted = decrypt(encrypted)    // returns 'some text
+const decrypted = decrypt(encrypted)    // returns 'some text'
 ```
