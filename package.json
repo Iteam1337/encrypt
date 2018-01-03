@@ -1,9 +1,12 @@
 {
   "name": "aes-encrypt",
   "version": "0.0.0",
-  "description": "Simple encryption/decryption using aes-256-gcm",
+  "description": "Some (hopefully) sensible defaults for encrypting in node",
   "main": "lib/encryptor.js",
   "scripts": {
+    "patch-release": "npm version patch && npm publish && git push origin master --follow-tags",
+    "minor-release": "npm version minor && npm publish && git push origin master --follow-tags",
+    "major-release": "npm version major && npm publish && git push origin master --follow-tags",
     "test": "mocha test/**/*.js"
   },
   "author": "Johan Öbrink <johan.obrink@gmail.com>",

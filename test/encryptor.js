@@ -197,5 +197,31 @@ describe('encryptor', () => {
           .to.equal(message)
       })
     })
+    describe('large text', () => {
+      let text
+      beforeEach((done) => {
+        instance = init({
+          password,
+          encoding: 'base64'
+        })
+        readFile(`${process.cwd()}/test/lorem-ipsum.txt`, {encoding: 'utf8'}, (err, doc) => {
+          if (err) {
+            done(err)
+          } else {
+            text = doc
+            done()
+          }
+        })
+      })
+      it('encrypts and decrypts', () => {
+        const encrypted = instance.encrypt(text)
+        const decrypted = instance.decrypt(encrypted)
+
+        expect(encrypted)
+          .to.be.a('string')
+        expect(decrypted)
+          .to.equal(text)
+      })
+    })
   })
 })
