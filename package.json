@@ -1,6 +1,6 @@
 {
   "name": "@iteam/encrypt",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Some (hopefully) sensible defaults for encrypting in node",
   "main": "lib/encryptor.js",
   "scripts": {
