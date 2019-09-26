@@ -7,7 +7,7 @@ interface EncryptOptions {
 }
 
 interface EncryptResponse {
-  encrypt: (text: string) => string
+  encrypt: (text: string) => string | Buffer
   decrypt: (text: string) => string
 }
 
