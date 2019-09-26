@@ -1,8 +1,8 @@
 interface EncryptOptions {
-  algorithm: string
-  authTag: boolean
-  encoding: string
-  iv: Buffer
+  algorithm?: string
+  authTag?: boolean
+  encoding?: string
+  iv?: Buffer
   password: string
 }
 
