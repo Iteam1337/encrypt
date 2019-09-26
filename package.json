@@ -3,6 +3,7 @@
   "version": "0.3.2",
   "description": "Some (hopefully) sensible defaults for encrypting in node",
   "main": "lib/encryptor.js",
+  "types": "index.d.ts",
   "scripts": {
     "patch-release": "npm version patch && npm publish --access public && git push origin master --follow-tags",
     "minor-release": "npm version minor && npm publish --access public && git push origin master --follow-tags",
